@@ -13,13 +13,13 @@ function WeatherData () {
   const [countryName, setCountryName] = useState("");
   const [day, setDay] = useState("");
   const [night, setNight] = useState("");
-  const [dayIcon, setDayIcon] = useState();
-  const [nightIcon, setNightIcon] = useState();
+//  const [dayIcon, setDayIcon] = useState();
+//  const [nightIcon, setNightIcon] = useState();
 
   const api_call = async e => {
     e.preventDefault()
 
-    const cityRequest = api.get(`locations/v1/cities/search?apikey=Y8BcqOPRPHAHWElYwRLnr7rXezu1wSKZ&q=${cityForm}&language=pt-br`);
+    const cityRequest = api.get(`locations/v1/cities/search?apikey=${apiKey}&q=${cityForm}&language=pt-br`);
     const cityResponse = await cityRequest;
 
     if (cityResponse.data.length !== 0) {
@@ -37,8 +37,8 @@ function WeatherData () {
       setUnit("°" + response.data.DailyForecasts[0].Temperature.Minimum.Unit);
       setDay("Dia: " + response.data.DailyForecasts[0].Day.IconPhrase);
       setNight("Noite: " + response.data.DailyForecasts[0].Night.IconPhrase);
-      setDayIcon(response.data.DailyForecasts[0].Day.Icon);
-      setNightIcon(response.data.DailyForecasts[0].Night.Icon);
+//      setDayIcon(response.data.DailyForecasts[0].Day.Icon);
+//      setNightIcon(response.data.DailyForecasts[0].Night.Icon);
     }
   }
 
